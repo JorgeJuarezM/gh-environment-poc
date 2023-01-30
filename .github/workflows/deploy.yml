@@ -4,6 +4,11 @@ on:
   push:
     branches: [ "main" ]
 
+# Environment variables definition.
+env:
+  # gets the secret and assign them to a local variable
+  MI_VARIABLE: ${{ secrets.MI_TOKEN_DE_ACCESO }} 
+  
 jobs:
   # This workflow contains a single job called "deploy"
   deploy:
@@ -19,4 +24,4 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Deploy Application
         run: |
-          echo "App deployment example"
+          echo "El contenido de mi variable es $MI_VARIABLE"
